@@ -6,8 +6,12 @@
   home.homeDirectory = "/home/jin";
   home.stateVersion = "26.05";
 
-  # ====== Niri 配置 ======
-  xdg.configFile."niri/config.kdl".source = ./niri-config.kdl;
+  # ====== 模块 ======
+  imports = [
+    inputs.noctalia.homeModules.default
+    # niri 配置（迁移自 shorin-arch-setup）：niri.nix + niri/ 目录
+    ./niri.nix
+  ];
 
   # ====== Kitty ======
   programs.kitty = {
@@ -44,10 +48,6 @@
   };
 
   # ====== Noctalia Shell ======
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
-
   programs.noctalia = {
     enable = true;
     systemd.enable = true;

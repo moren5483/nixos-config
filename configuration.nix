@@ -45,7 +45,12 @@
   ];
 
   # ====== 窗口管理器 (Niri) ======
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    # 用 nixpkgs 的 niri 26.04：niri-flake 默认钉在 25.08，
+    # 跑不了 shorin 配置里的 include / blur / recent-windows。
+    package = pkgs.niri;
+  };
 
   # ====== 文件管理器及配套服务 (Nautilus) ======
   services.gvfs.enable = true;
@@ -156,6 +161,9 @@
     zip
     p7zip   # 7z 等
     unrar   # rar（unfree，已由 allowUnfree 放行）
+
+    # niri 26.04 需要它才能跑 X11 应用（QQ / Steam / Wine 等）
+    xwayland-satellite
   ];
 
   # ====== DeepSeek Harness 桌面应用 ======

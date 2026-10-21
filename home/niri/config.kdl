@@ -1,0 +1,80 @@
+//  ██████  ██   ██  ██████  ███████ ██ ███    ██
+//  ██      ██   ██ ██    ██ ██   ██    ██ ██  ██
+//  ███████ ███████ ██    ██ ██████  ██ ██ ██  ██
+//       ██ ██   ██ ██    ██ ██   ██ ██ ██  ██ ██
+//  ██████  ██   ██  ██████  ██   ██ ██ ██   ████
+//
+// 迁移自 shorin-arch-setup（noctalia 版），已适配 NixOS。
+// 需要 niri >= 26.04（include / blur / recent-windows）。
+
+// 截图保存位置
+screenshot-path "~/Pictures/Screenshots/Niri-screenshots/%Y-%m-%d_%H-%M-%S.png"
+
+// 环境变量
+// 说明：输入法环境变量（XMODIFIERS/QT_IM_MODULE/GTK_IM_MODULE 等）
+//       由 NixOS 的 environment.sessionVariables 全局设置，这里不再重复。
+environment {
+    // 默认文本编辑器
+    EDITOR "vim"
+    // Qt6 输入法模块（NixOS 目前只设了 QT_IM_MODULE，Qt6 的新写法是复数）
+    QT_IM_MODULES "wayland;fcitx"
+    // 解决 noctalia 图标主题缺失
+    QS_ICON_THEME "Adwaita"
+    // Qt 应用用 GTK 主题（需要 qqc2-gtk，没装就别开）
+    //QT_QPA_PLATFORMTHEME "gtk3"
+    //QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    // N 卡双显卡导致 GTK 应用启动慢时打开
+    //GSK_RENDERER "gl"
+}
+
+input {
+    keyboard {
+        xkb {
+        }
+        repeat-delay 250
+        repeat-rate 35
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        accel-speed -0.15
+        accel-profile "flat"
+    }
+
+    trackpoint {
+    }
+}
+
+// ===== 自动启动 =====
+// 原版这里还有这些 Arch 专属项，NixOS 上都由系统负责，已删除：
+//   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1  → niri-flake 的 systemd 服务
+//   dbus-update-activation-environment / xdg-desktop-portal-gnome → NixOS session
+//   systemctl --user set-environment XDG_SESSION_CLASS=user     → 不需要
+//   xhost +si:localuser:root                                    → 不需要
+//   qs -c noctalia-shell                                        → home-manager 的 noctalia 服务
+//   fcitx5                                                      → XDG autostart
+// 截图音效脚本留到下一轮（需要 sox / sound-theme-freedesktop）：
+//   spawn-at-startup "~/.config/niri/scripts/screenshot-sound.sh"
+
+// 取消启动 niri 时自动弹出快捷键教程
+hotkey-overlay {
+    skip-at-startup
+}
+
+// 隐藏窗口标题栏
+prefer-no-csd
+
+// 拆分出来的配置
+include "layout.kdl"
+include "animations.kdl"
+include "binds.kdl"
+include "supertab.kdl"
+include "windowrules.kdl"
+include "cursor.kdl"
+include "outputs.kdl"
+include "blur.kdl"
+include "./noctalia.kdl"

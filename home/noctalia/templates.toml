@@ -9,7 +9,7 @@
 
 [theme.templates]
 enable_builtin_templates = true
-builtin_ids = [ "gtk3", "gtk4" ]
+builtin_ids = [ "gtk3", "gtk4", "kitty", "qt" ]
 
 [theme.templates.user.fcitx5]
 input_path  = "$XDG_CONFIG_HOME/noctalia/templates/fcitx5-theme.conf"

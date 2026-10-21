@@ -4,7 +4,10 @@
 {
   programs.kitty = {
     enable = true;
-    themeFile = "Catppuccin-Frappe";
+
+    # 配色由 Noctalia 按壁纸生成到 themes/noctalia.conf，
+    # 这里只负责 include（放在配置末尾，会覆盖前面的颜色设置）
+    extraConfig = "include themes/noctalia.conf";
 
     settings = {
       window_padding_width = 5; # 四边内边距

@@ -12,6 +12,7 @@
     kitty
     nautilus
     microsoft-edge
+    mpv
 
     # 归档：Ark 及解压后端
     # 注意：顶层的 pkgs.ark 是 posit 的 R 内核，KDE Ark 在 kdePackages 下

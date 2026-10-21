@@ -89,9 +89,9 @@
 
         # ── conf/ 下各插件的配置 ──
         addons = {
-          # 外观：竖排候选、字体、分数缩放
+          # 外观：候选窗、字体、分数缩放
           classicui.globalSection = {
-            "Vertical Candidate List" = true;
+            "Vertical Candidate List" = false;
             WheelForPaging = true;
             Font = "\"Sans Serif 11\"";
             MenuFont = "\"Sans Serif 10\"";

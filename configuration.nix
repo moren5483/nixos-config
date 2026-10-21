@@ -22,6 +22,7 @@
     # 服务与应用
     ./modules/services.nix
     ./modules/apps.nix
+    ./modules/gaming.nix
   ];
 
   system.stateVersion = "26.05";

@@ -4,7 +4,7 @@
 # 不认 ~/.config/gtk-*/gtk.css 里的 @define-color 覆盖，所以壁纸换色它不跟。
 # 改成 qt6ct：Noctalia 把配色写成 qt6ct/qt5ct 的 colors/noctalia.conf，
 # qt6ct 读它 + adwaita-dark 控件风格。
-{ ... }:
+{ lib, ... }:
 
 {
   qt = {
@@ -19,5 +19,5 @@
 
   # Qt6 应用走 qt6ct（覆盖模块默认的 qt5ct）。
   # 代价：少数 Qt5 应用拿不到平台主题，会用默认 Fusion 风格。
-  environment.variables.QT_QPA_PLATFORMTHEME = "qt6ct";
+  environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
 }

@@ -9,8 +9,12 @@
   # ====== 模块 ======
   imports = [
     inputs.noctalia.homeModules.default
-    # niri 配置（迁移自 shorin-arch-setup）：niri.nix + niri/ 目录
-    ./niri.nix
+    # niri 配置（迁移自 shorin-arch-setup）
+    ./niri/niri.nix
+    # fcitx5 用户级配置（rime 的 Shift 补丁）
+    ./fcitx5/fcitx5.nix
+    # Noctalia 配置（fcitx5 主题模板等）
+    ./noctalia/noctalia.nix
   ];
 
   # ====== Kitty ======

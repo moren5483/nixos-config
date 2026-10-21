@@ -21,6 +21,17 @@
 
   programs.virt-manager.enable = true;
 
+  # 修 virt-manager 的 .ui 界面不翻译的问题（上游 bug）：
+  # 它的 Python 只调了 Python 层的 gettext.bindtextdomain，没同步给 libc；
+  # 而 GTK Builder 走 glib → libc 的 dgettext，在 NixOS 上找不到 /nix/store 里的
+  # .mo，于是菜单/对话框标题/按钮全是英文，只有 Python 里的 _() 字符串是中文。
+  # 这里在 virtinst 导入时补一次 libc 层的 bindtextdomain。
+  programs.virt-manager.package = pkgs.virt-manager.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      printf '\n# NixOS: bind gettext domain to libc so GTK Builder finds the .mo\nimport ctypes as _ctypes\n_ctypes.CDLL(None).bindtextdomain(b"virt-manager", BuildConfig.gettext_dir.encode())\n' >> virtinst/__init__.py
+    '';
+  });
+
   # virt-manager 的自动连接配置写在 dconf 里
   programs.dconf.enable = true;
 

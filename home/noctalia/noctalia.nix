@@ -1,18 +1,14 @@
-# ============================================================
-#  Noctalia 配置（home-manager）
-#
-#  目前只放了给 fcitx5 用的模板：把壁纸配色渲染成 fcitx5 的
-#  「Matugen」主题（~/.local/share/fcitx5/themes/Matugen/theme.conf）。
-#  以后 btop / fuzzel / kitty 之类的模板也可以加在这个目录里。
-#
-#  注意：Noctalia 自己的界面设置（settings.toml）是 GUI 运行时写入的，
-#  不受这里管理；这里只管 ~/.config/noctalia/*.toml 这种声明式配置。
-# ============================================================
+# Noctalia Shell：启用服务 + 声明式模板
+# 模板把壁纸配色渲染进 fcitx5 的 Matugen 主题；界面设置由 GUI 写入
+# ~/.local/state/noctalia/settings.toml，不在这里管理。
 { ... }:
 
 {
-  xdg.configFile."noctalia/templates.toml".source = ./templates.toml;
+  programs.noctalia = {
+    enable = true;
+    systemd.enable = true;
+  };
 
-  xdg.configFile."noctalia/templates/fcitx5-theme.conf".source =
-    ./templates/fcitx5-theme.conf;
+  xdg.configFile."noctalia/templates.toml".source = ./templates.toml;
+  xdg.configFile."noctalia/templates/fcitx5-theme.conf".source = ./templates/fcitx5-theme.conf;
 }

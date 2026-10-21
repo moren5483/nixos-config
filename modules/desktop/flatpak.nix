@@ -1,6 +1,8 @@
 # Flatpak：启用服务，使用国内镜像，并以幂等方式安装 QQ / 微信
-# NixOS 的 services.flatpak 只有 enable，没有 packages 选项，
-# 所以用一次性 systemd 服务在启动时补装（已装则秒退）
+#
+# 注意：安装要下载 1~2 GB，所以不能挂到 multi-user.target——
+# 那会让 nixos-rebuild 的 activation 一直等它下完。改用 timer 在开机后
+# 异步执行；已装过则 RemainAfterExit 直接秒退。
 { pkgs, ... }:
 
 let
@@ -14,7 +16,6 @@ in
 
   systemd.services.flatpak-apps = {
     description = "Install Flatpak apps (QQ, WeChat)";
-    wantedBy = [ "multi-user.target" ];
     wants = [ "network-online.target" ];
     after = [
       "network-online.target"
@@ -37,5 +38,14 @@ in
       $FP install --system --noninteractive -y \
         flathub com.qq.QQ com.tencent.WeChat || true
     '';
+  };
+
+  systemd.timers.flatpak-apps = {
+    description = "Run flatpak-apps shortly after boot";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "2min";
+      Unit = "flatpak-apps.service";
+    };
   };
 }

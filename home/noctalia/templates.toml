@@ -32,3 +32,10 @@ input_path  = "$XDG_CONFIG_HOME/noctalia/templates/kitty-colors.conf"
 output_path = "$XDG_CONFIG_HOME/kitty/themes/noctalia.conf"
 # 让所有已打开的 kitty 原子重载配色
 post_hook   = "pkill -USR1 kitty || true"
+
+# 文件夹图标：把 Adwaita 的文件夹 SVG 按壁纸色重新染色，
+# 生成 Adwaita-Matugen-A / B 两个主题轮流切换（切主题才能刷新图标缓存）
+[theme.templates.user.gtk-folder]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/gtk-folder/recolor.sh"
+output_path = "$XDG_CACHE_HOME/matugen/recoloricons.sh"
+post_hook   = "bash \"$HOME/.cache/matugen/recoloricons.sh\" &"

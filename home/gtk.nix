@@ -11,10 +11,8 @@
       package = pkgs.adw-gtk3;
     };
 
-    iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-    };
+    # 图标主题不在这里写死：Noctalia 的 gtk-folder 模板会生成
+    # Adwaita-Matugen-A/B 并通过 dconf 切换，settings.ini 写死会覆盖它
 
     font = {
       name = "Adwaita Sans";

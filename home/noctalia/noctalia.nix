@@ -17,4 +17,7 @@
 
   # kitty 的配色模板（背景用壁纸派生的 secondary_container）
   xdg.configFile."noctalia/templates/kitty-colors.conf".source = ./templates/kitty-colors.conf;
+
+  # 文件夹图标染色模板（含 Adwaita-Matugen 图标源文件）
+  xdg.configFile."noctalia/templates/gtk-folder".source = ./templates/gtk-folder;
 }

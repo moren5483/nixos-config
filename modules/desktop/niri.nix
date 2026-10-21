@@ -42,6 +42,15 @@
     "application/x-xz" = "org.kde.ark.desktop";
     "application/x-bzip2" = "org.kde.ark.desktop";
     "application/zstd" = "org.kde.ark.desktop";
+
+    # 图片默认用 imv 打开（shorin 那套也是它）
+    "image/png" = "imv.desktop";
+    "image/jpeg" = "imv.desktop";
+    "image/gif" = "imv.desktop";
+    "image/webp" = "imv.desktop";
+    "image/bmp" = "imv.desktop";
+    "image/tiff" = "imv.desktop";
+    "image/svg+xml" = "imv.desktop";
   };
 
   # fcitx5 / noctalia 等由 XDG autostart 拉起

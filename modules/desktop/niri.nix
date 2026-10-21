@@ -43,14 +43,14 @@
     "application/x-bzip2" = "org.kde.ark.desktop";
     "application/zstd" = "org.kde.ark.desktop";
 
-    # 图片默认用 imv 打开（shorin 那套也是它）
-    "image/png" = "imv.desktop";
-    "image/jpeg" = "imv.desktop";
-    "image/gif" = "imv.desktop";
-    "image/webp" = "imv.desktop";
-    "image/bmp" = "imv.desktop";
-    "image/tiff" = "imv.desktop";
-    "image/svg+xml" = "imv.desktop";
+    # 图片默认用 Loupe 打开（可裁剪/旋转/翻转）
+    "image/png" = "org.gnome.Loupe.desktop";
+    "image/jpeg" = "org.gnome.Loupe.desktop";
+    "image/gif" = "org.gnome.Loupe.desktop";
+    "image/webp" = "org.gnome.Loupe.desktop";
+    "image/bmp" = "org.gnome.Loupe.desktop";
+    "image/tiff" = "org.gnome.Loupe.desktop";
+    "image/svg+xml" = "org.gnome.Loupe.desktop";
   };
 
   # fcitx5 / noctalia 等由 XDG autostart 拉起

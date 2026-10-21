@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.deepseek-harness.nixosModules.default # 导入 DeepSeek Harness 模块
+    ./home/fcitx5/system.nix # fcitx5 的系统级设置
   ];
 
   # ====== 引导与内核 ======

@@ -1,0 +1,8 @@
+# 配合 fcitx5 的「单击 Shift 切换中英」（AltTriggerKeys）：
+# 让 Rime 自己不再抢 Shift，否则一次按键会触发两次切换。
+# 来自 shorin-arch-setup，另外两处没搬：
+#   - menu/page_size：你的 default.yaml 里已经是 7
+#   - grammar/language：wanxiang 语法模型文件没装，加了会报错
+patch:
+  "ascii_composer/switch_key/Shift_L": noop
+  "ascii_composer/switch_key/Shift_R": noop

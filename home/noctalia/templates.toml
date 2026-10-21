@@ -1,0 +1,10 @@
+# Noctalia 模板：壁纸配色 → fcitx5 主题
+# 定义 [theme.templates.user.<id>] 即表示启用该模板。
+
+[theme.templates.user.fcitx5]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/fcitx5-theme.conf"
+output_path = "$XDG_DATA_HOME/fcitx5/themes/Matugen/theme.conf"
+# 只让正在运行的 fcitx5 重新加载 classicui 主题；
+# 不用 fcitx5 -r：那样会新起一个实例，niri 下输入法会卡死。
+# --auto-start=no 避免 fcitx5 没启动时被 dbus 拉起第二个实例。
+post_hook   = "busctl --user --auto-start=no call org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1 ReloadAddonConfig s classicui"

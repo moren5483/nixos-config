@@ -78,3 +78,6 @@ include "cursor.kdl"
 include "outputs.kdl"
 include "blur.kdl"
 include "./noctalia.kdl"
+
+// Noctalia 按壁纸生成的动态配色（绝对路径：配置目录是只读软链）
+include "/home/jin/.local/share/niri/colors.kdl"

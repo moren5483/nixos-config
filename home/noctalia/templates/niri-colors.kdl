@@ -1,0 +1,25 @@
+// 由 Noctalia 按壁纸配色生成（不要手改，重建/换壁纸都会被覆盖）
+// 被 ~/.config/niri/config.kdl 用绝对路径 include
+layout {
+    focus-ring {
+        active-color "{{colors.primary.default.hex}}"
+        inactive-color "{{colors.surface.default.hex}}"
+        urgent-color "{{colors.error.default.hex}}"
+    }
+
+    border {
+        active-color "{{colors.primary.default.hex}}"
+        inactive-color "{{colors.surface.default.hex}}"
+        urgent-color "{{colors.error.default.hex}}"
+    }
+
+    tab-indicator {
+        active-color "{{colors.primary.default.hex}}"
+        inactive-color "{{colors.primary_container.default.hex}}"
+        urgent-color "{{colors.error.default.hex}}"
+    }
+
+    insert-hint {
+        color "{{colors.primary.default.hex}}80"
+    }
+}

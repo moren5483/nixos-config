@@ -11,4 +11,7 @@
 
   xdg.configFile."noctalia/templates.toml".source = ./templates.toml;
   xdg.configFile."noctalia/templates/fcitx5-theme.conf".source = ./templates/fcitx5-theme.conf;
+
+  # niri 焦点框/边框配色的模板（输出到 ~/.local/share/niri/colors.kdl）
+  xdg.configFile."noctalia/templates/niri-colors.kdl".source = ./templates/niri-colors.kdl;
 }

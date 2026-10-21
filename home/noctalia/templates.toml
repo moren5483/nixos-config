@@ -1,5 +1,15 @@
-# Noctalia 模板：壁纸配色 → fcitx5 主题
-# 定义 [theme.templates.user.<id>] 即表示启用该模板。
+# Noctalia 模板：壁纸配色 → fcitx5 主题 / niri 焦点框 / GTK 应用
+#
+# - 内置模板（gtk3/gtk4）由 Noctalia 自带，启用后会：
+#     * 生成 ~/.config/gtk-{3,4}.0/noctalia.css
+#     * 给 gtk.css 追加 @import，并同步 adw-gtk3(-dark) 主题
+# - user 模板是我们自己声明的：定义即启用。
+# - niri 的配置目录是 home-manager 的只读软链，内置的 niri 模板改不了
+#   config.kdl，所以这里改成写一个独立文件，再由 config.kdl 绝对路径 include。
+
+[theme.templates]
+enable_builtin_templates = true
+builtin_ids = [ "gtk3", "gtk4" ]
 
 [theme.templates.user.fcitx5]
 input_path  = "$XDG_CONFIG_HOME/noctalia/templates/fcitx5-theme.conf"
@@ -8,3 +18,9 @@ output_path = "$XDG_DATA_HOME/fcitx5/themes/Matugen/theme.conf"
 # 不用 fcitx5 -r：那样会新起一个实例，niri 下输入法会卡死。
 # --auto-start=no 避免 fcitx5 没启动时被 dbus 拉起第二个实例。
 post_hook   = "busctl --user --auto-start=no call org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1 ReloadAddonConfig s classicui"
+
+[theme.templates.user.niri]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/niri-colors.kdl"
+output_path = "$XDG_DATA_HOME/niri/colors.kdl"
+# 让 niri 重新读配置，焦点框/边框立刻换色
+post_hook   = "niri msg action load-config-file || true"

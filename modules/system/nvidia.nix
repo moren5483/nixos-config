@@ -22,16 +22,13 @@
     # 安装 nvidia-settings 图形面板
     nvidiaSettings = true;
 
-    # 混合输出：桌面仍由 Intel 渲染，需要独显时用 nvidia-offload 启动
+    # 独显直连：NVIDIA 负责渲染，Intel 负责把画面送到屏幕
     prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true; # 提供 nvidia-offload 命令
-      };
+      sync.enable = true;
+
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-  };
 
   # 浏览器等应用的 VA-API 硬件解码
   hardware.graphics.extraPackages = [ pkgs.nvidia-vaapi-driver ];

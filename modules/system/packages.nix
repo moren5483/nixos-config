@@ -7,6 +7,7 @@
     vim
     wget
     git
+    fastfetch
 
     # 桌面应用
     kitty

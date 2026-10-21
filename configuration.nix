@@ -14,6 +14,7 @@
     ./modules/system/users.nix
     ./modules/system/packages.nix
     ./modules/system/env.nix
+    ./modules/system/nvidia.nix
 
     # 桌面
     ./modules/desktop/niri.nix

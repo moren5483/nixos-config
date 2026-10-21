@@ -19,6 +19,7 @@
     # 桌面
     ./modules/desktop/niri.nix
     ./modules/desktop/fcitx5.nix
+    ./modules/desktop/qt.nix
 
     # 服务与应用
     ./modules/services.nix

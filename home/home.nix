@@ -7,6 +7,7 @@
 
     ./kitty.nix
     ./fish.nix
+    ./gtk.nix
     ./niri/niri.nix
     ./fcitx5/fcitx5.nix
     ./noctalia/noctalia.nix

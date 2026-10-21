@@ -9,7 +9,7 @@
 
 [theme.templates]
 enable_builtin_templates = true
-builtin_ids = [ "gtk3", "gtk4", "kitty", "qt" ]
+builtin_ids = [ "gtk3", "gtk4", "qt" ]
 
 [theme.templates.user.fcitx5]
 input_path  = "$XDG_CONFIG_HOME/noctalia/templates/fcitx5-theme.conf"
@@ -24,3 +24,11 @@ input_path  = "$XDG_CONFIG_HOME/noctalia/templates/niri-colors.kdl"
 output_path = "$XDG_DATA_HOME/niri/colors.kdl"
 # 让 niri 重新读配置，焦点框/边框立刻换色
 post_hook   = "niri msg action load-config-file || true"
+
+# kitty：用我们自己的模板，背景用 secondary_container（跟着壁纸色相），
+# 原生模板的 terminal_background 是近黑色，看起来永远“黑”。
+[theme.templates.user.kitty]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/kitty-colors.conf"
+output_path = "$XDG_CONFIG_HOME/kitty/themes/noctalia.conf"
+# 让所有已打开的 kitty 原子重载配色
+post_hook   = "pkill -USR1 kitty || true"

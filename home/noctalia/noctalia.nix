@@ -14,4 +14,7 @@
 
   # niri 焦点框/边框配色的模板（输出到 ~/.local/share/niri/colors.kdl）
   xdg.configFile."noctalia/templates/niri-colors.kdl".source = ./templates/niri-colors.kdl;
+
+  # kitty 的配色模板（背景用壁纸派生的 secondary_container）
+  xdg.configFile."noctalia/templates/kitty-colors.conf".source = ./templates/kitty-colors.conf;
 }

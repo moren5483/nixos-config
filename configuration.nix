@@ -15,6 +15,7 @@
     ./modules/system/packages.nix
     ./modules/system/env.nix
     ./modules/system/nvidia.nix
+    ./modules/system/irlume.nix
     ./modules/system/virtualisation.nix
 
     # 桌面

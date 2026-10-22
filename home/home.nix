@@ -6,6 +6,7 @@
     inputs.noctalia.homeModules.default
 
     ./kitty.nix
+    ./thunar.nix
     ./fish.nix
     ./gtk.nix
     ./qt.nix

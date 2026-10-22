@@ -59,7 +59,7 @@ input {
 //   fcitx5                                                      → XDG autostart
 // 截图音效脚本留到下一轮（需要 sox / sound-theme-freedesktop）：
 //   spawn-at-startup "~/.config/niri/scripts/screenshot-sound.sh"
-spawn-at-startup "nautilus" "--gapplication-service"
+spawn-at-startup "thunar" "--daemon"
 // 取消启动 niri 时自动弹出快捷键教程
 hotkey-overlay {
     skip-at-startup

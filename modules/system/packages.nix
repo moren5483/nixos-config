@@ -11,13 +11,16 @@
 
     # 桌面应用
     kitty
-    nautilus
+    thunar
     microsoft-edge
     mpv
     loupe
 
-    # 办公：Collabora Office 桌面版（coda-qt，基于 LibreOffice + QtWebEngine）
-    collabora-desktop
+    # Thunar 配套：缩略图、U 盘自动挂载、剪贴板命令、自定义操作里的 python
+    tumbler
+    thunar-volman
+    wl-clipboard
+    python3
 
     # 归档：Ark 及解压后端
     # 注意：顶层的 pkgs.ark 是 posit 的 R 内核，KDE Ark 在 kdePackages 下

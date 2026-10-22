@@ -11,11 +11,11 @@
     package = pkgs.niri;
   };
 
-  # 门户：文件选择交给 nautilus
+  # 门户：文件选择用 xdg-desktop-portal-gtk 自带的 GTK 对话框
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.niri."org.freedesktop.impl.portal.FileChooser" = "nautilus";
+    config.niri."org.freedesktop.impl.portal.FileChooser" = "gtk";
   };
 
   # 文件管理器需要的后台服务
@@ -51,6 +51,9 @@
     "image/bmp" = "org.gnome.Loupe.desktop";
     "image/tiff" = "org.gnome.Loupe.desktop";
     "image/svg+xml" = "org.gnome.Loupe.desktop";
+
+    # 文件夹默认用 Thunar 打开
+    "inode/directory" = "thunar.desktop";
   };
 
   # fcitx5 / noctalia 等由 XDG autostart 拉起

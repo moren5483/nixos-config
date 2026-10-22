@@ -26,4 +26,17 @@ in
     [Interface]
     icon_theme=Adwaita
   '';
+
+  # 启动器里隐藏 qt5ct / qt6ct 的设置窗口。
+  # 系统 profile 里有同名 .desktop（来自 qt.platformTheme），
+  # 用户目录放一个 NoDisplay=true 的同名文件就能盖掉它。
+  xdg.desktopEntries.qt5ct = {
+    name = "Qt5 Settings";
+    noDisplay = true;
+  };
+
+  xdg.desktopEntries.qt6ct = {
+    name = "Qt6 Settings";
+    noDisplay = true;
+  };
 }

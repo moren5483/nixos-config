@@ -16,6 +16,9 @@
     mpv
     loupe
 
+    # 办公：Collabora Office 桌面版（coda-qt，基于 LibreOffice + QtWebEngine）
+    collabora-desktop
+
     # 归档：Ark 及解压后端
     # 注意：顶层的 pkgs.ark 是 posit 的 R 内核，KDE Ark 在 kdePackages 下
     kdePackages.ark

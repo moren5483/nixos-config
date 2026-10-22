@@ -16,7 +16,6 @@
     ./modules/system/env.nix
     ./modules/system/nvidia.nix
     ./modules/system/virtualisation.nix
-    ./modules/system/distrobox.nix
 
     # 桌面
     ./modules/desktop/niri.nix

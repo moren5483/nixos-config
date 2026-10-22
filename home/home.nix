@@ -8,8 +8,6 @@
     ./kitty.nix
     ./fish.nix
     ./gtk.nix
-    ./podman.nix
-    ./distrobox.nix
     ./qt.nix
     ./vim/vim.nix
     ./niri/niri.nix

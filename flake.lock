@@ -80,29 +80,6 @@
         "type": "github"
       }
     },
-    "irlume": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1790691315,
-        "narHash": "sha256-FlEspuFBgrdvfzMvi9oyxFGzJ/CBGjm7s4sh+R9rKe4=",
-        "owner": "archledger",
-        "repo": "irlume",
-        "rev": "4288677fb32fb1c09dd844c83f37e0be453d1daa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "archledger",
-        "ref": "v0.15.0",
-        "repo": "irlume",
-        "type": "github"
-      }
-    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -246,19 +223,13 @@
       "inputs": {
         "deepseek-harness": "deepseek-harness",
         "home-manager": "home-manager",
-        "irlume": "irlume",
         "niri": "niri",
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia"
       }
     },
     "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "irlume",
-          "nixpkgs"
-        ]
-      },
+      "inputs": {},
       "locked": {
         "lastModified": 1788248235,
         "narHash": "sha256-siCQqLbY7AbZ9V3oyc65K8bhNr7QgZTXoqLTws3pv0s=",

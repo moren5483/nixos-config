@@ -9,6 +9,8 @@
       "networkmanager"
       "wheel"
       "clash-verge"
+      # Howdy 的 PAM 模块在用户进程里跑（noctalia 锁屏），要能读摄像头
+      "video"
     ];
   };
 }

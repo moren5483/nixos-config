@@ -14,10 +14,6 @@
 
     # 新增 DeepSeek Harness 的 Flake 输入
     deepseek-harness.url = "github:moraxyc/deepseek-harness.nix";
-
-    # 人脸认证（IR 摄像头），自带 NixOS 模块
-    irlume.url = "github:archledger/irlume/v0.15.0";
-    irlume.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, niri, noctalia, home-manager, ... }@inputs: {

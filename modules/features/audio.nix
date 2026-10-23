@@ -1,4 +1,4 @@
-# 音频（PipeWire）与打印
+# 音频：PipeWire + rtkit（注释掉这行 import 就没声音）
 { ... }:
 
 {
@@ -11,6 +11,4 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  services.printing.enable = true;
 }

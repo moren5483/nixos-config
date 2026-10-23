@@ -11,8 +11,15 @@
 
       # 给 Windows 11 之类需要 TPM 的虚拟机
       swtpm.enable = true;
+
+      # virtiofs 共享目录的后端；没有它建虚拟机会报
+      # "Unable to find a satisfying virtiofsd"
+      vhostUserPackages = [ pkgs.virtiofsd ];
     };
   };
+
+  # libvirtd 的 PATH 默认只放了 qemu 和 netcat，virtiofsd 要显式加进去
+  systemd.services.libvirtd.path = [ pkgs.virtiofsd ];
 
   # 嵌套虚拟化：让客户机内部也能再跑 KVM。
   # 当前内核 Intel 默认 nested=Y，这里显式声明，换内核/换机器时行为不变。
